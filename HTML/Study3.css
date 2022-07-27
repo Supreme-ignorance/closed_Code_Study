@@ -1,0 +1,8 @@
+#check_time {
+    background-color: lightgreen;
+    border-radius: 6px;
+    border: none;
+    color: rebeccapurple;
+    cursor: pointer;
+    padding: 10px;
+}
