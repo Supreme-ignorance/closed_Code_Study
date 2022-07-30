@@ -1,4 +1,4 @@
-package Beak_No_2751;
+package Bj_No_2751;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
