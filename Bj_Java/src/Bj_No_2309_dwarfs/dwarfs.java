@@ -23,6 +23,7 @@ public class dwarfs {
 	
 	static void seven(int[] dwarfs, boolean[] check, int s, int r) {
 		if (result) return;
+		
 		if (r == 0) {
 			int sum = 0;
 			for (int i = 0; i < dwarfs.length; i++) {
