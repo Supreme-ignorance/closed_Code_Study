@@ -1,4 +1,4 @@
-package bj_No_16927_arrayturn2_saffy;
+package bj_No_16927_arrayturn2;
 
 import java.util.Scanner;
 
