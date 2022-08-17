@@ -2,7 +2,7 @@ package BJ_No_2567_confetti2;
 
 import java.util.Scanner;
 
-public class Confetti {
+public class Confetti2 {
 	static final int SIZE = 100;
 
 	public static void main(String[] args) {
