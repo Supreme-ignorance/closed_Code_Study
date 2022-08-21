@@ -23,7 +23,7 @@ public class ¿ì¿µ¿ì1 {
 			int res = 0;
 			for (int r = 0; r < SIZE; r++) {
 				for (int c = 0; c < SIZE; c++) {
-					// È¸¹® °Ë»ç
+					// È¸ï¿½ï¿½ ï¿½Ë»ï¿½
 					int cntr = 0;
 					int cntc = 0;
 					for (int j = 0; j < n / 2; j++) {

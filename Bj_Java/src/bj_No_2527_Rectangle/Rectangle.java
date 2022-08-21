@@ -20,9 +20,7 @@ public class Rectangle {
 			int x = sc.nextInt();
 			int y = sc.nextInt();
 
-			if (a <= v && b <= w && c >= x && d >= y)
-				System.out.println("a"); //
-			else if (a == x && d == w)
+			if (a == x && d == w)
 				System.out.println("c"); //
 			else if (c == v && d == w)
 				System.out.println("c"); //
@@ -30,28 +28,19 @@ public class Rectangle {
 				System.out.println("c"); //
 			else if (c == v && y == b)
 				System.out.println("c"); //
-			else if (d == w && ((a <= x && a >= v) || (c <= x && c >= v)))
-				System.out.println("b"); //
-			else if (a == x && ((b <= y && b >= w) || (d <= y && d >= w)))
-				System.out.println("b"); //
-			else if (b == y && ((a <= x && a >= v) || (c <= x && c >= v)))
-				System.out.println("b"); //
-			else if (c == v && ((b <= y && b >= w) || (d <= y && d >= w)))
-				System.out.println("b"); //
-			else if (a <= x && a >= v && b >= w && b <= y)
-				System.out.println("a"); //
-			else if (a <= x && a >= v && d >= w && d <= y)
-				System.out.println("a"); //
-			else if (c <= x && c >= v && b >= w && b <= y)
-				System.out.println("a"); //
-			else if (c <= x && c >= v && d >= w && d <= y)
-				System.out.println("a"); //
-			else if (a >= v && c <= x && b <= w && d >= y)
-				System.out.println("a"); //
-			else if (a <= v && c >= x && b >= w && d <= y)
-				System.out.println("a"); //
-			else
+			else if (c < v || x < a || d < w || y < b)
 				System.out.println("d"); //
+			else if (d == w)
+				System.out.println("b"); //
+			else if (a == x)
+				System.out.println("b"); //
+			else if (b == y)
+				System.out.println("b"); //
+			else if (c == v)
+				System.out.println("b"); // 
+			else {
+				System.out.println("a"); //
+			}
 
 		}
 	}
