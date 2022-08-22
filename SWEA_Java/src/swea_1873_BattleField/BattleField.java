@@ -49,6 +49,7 @@ public class BattleField {
 	
 	static void control(char[][] field, char comand, char mydir) {
 		switch (comand) {
+		// 위로 방향 전환 이동 가능시 이동
 		case 'U' : 
 			field[myr][myc] = '^';
 			if (myr - 1 >= 0 && ismoveable(field[myr - 1][myc])) {
@@ -57,6 +58,7 @@ public class BattleField {
 				myr--;
 			}
 			break;
+		// 아래로 방향 전환 이동 가능시 이동
 		case 'D' : 
 			field[myr][myc] = 'v';
 			if (myr + 1 < field.length && ismoveable(field[myr + 1][myc])) {
@@ -65,6 +67,7 @@ public class BattleField {
 				myr++;
 			}
 			break;
+		// 왼쪽으로 방향 전환 이동 가능시 이동
 		case 'L' :
 			field[myr][myc] = '<';
 			if (myc - 1 >= 0 && ismoveable(field[myr][myc - 1])) {
@@ -73,6 +76,7 @@ public class BattleField {
 				myc--;
 			}
 			break;
+		// 오른쪽으로 방향 전환 이동 가능시 이동
 		case 'R' :
 			field[myr][myc] = '>';
 			if (myc + 1 < field[0].length && ismoveable(field[myr][myc + 1])) {
@@ -81,6 +85,7 @@ public class BattleField {
 				myc++;
 			}
 			break;
+		//발사
 		case 'S' : 
 			int[] dr = { 1, -1, 0, 0 };
 			int[] dc = { 0, 0, 1, -1 };
