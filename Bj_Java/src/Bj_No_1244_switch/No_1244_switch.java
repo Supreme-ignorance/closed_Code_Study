@@ -23,38 +23,38 @@ public class No_1244_switch {
 				case 1 : 
 					for (int j = 1; j <= n; j++) {
 						if (j % num == 0) {
-							if (sl[j] == 0) sl[j] = 1;
-							else sl[j] = 0;
-						}
+						if (sl[j] == 0)
+							sl[j] = 1;
+						else
+							sl[j] = 0;
 					}
-					break;
-				case 2 : 
-					for (int j = 0; ; j++) {
-						if (num - j <= 0 || num + j > n) break;
-						if (j == 0) {
-							if (sl[num] == 0) sl[num] = 1;
-							else sl[num] = 0;
-						} else if (sl[num - j] == sl[num + j]) {
-							if (sl[num - j] == 0) {
-								sl[num - j] = 1;
-								sl[num + j] = 1;
-							}
-							else {
-								sl[num - j] = 0;
-								sl[num + j] = 0;
-							}
+				}
+				break;
+			case 2:
+				for (int j = 0;; j++) {
+					if (num - j <= 0 || num + j > n) break;
+					if (sl[num - j] == sl[num + j]) {
+						if (sl[num - j] == 0) {
+							sl[num - j] = 1;
+							sl[num + j] = 1;
 						} else {
-							break;
+							sl[num - j] = 0;
+							sl[num + j] = 0;
 						}
+					} else {
+						break;
 					}
-					break;
-			}//switch문
-		}// 학생 값 입력받고 스위치 변경
-		
-		for(int i = 1; i <= n; i++) {
-			if (i < n) System.out.print(sl[i] + " ");
-            else if (i == n) System.out.print(sl[i]);
-			if(i % 20 == 0) {
+				}
+				break;
+			}// switch문
+		} // 학생 값 입력받고 스위치 변경
+
+		for (int i = 1; i <= n; i++) {
+			if (i < n)
+				System.out.print(sl[i] + " ");
+			else if (i == n)
+				System.out.print(sl[i]);
+			if (i % 20 == 0) {
 				System.out.println();
 			}
 		}
