@@ -22,6 +22,8 @@ public class Rectangle {
 
 			if (a <= v && b <= w && c >= x && d >= y)
 				System.out.println("a"); //
+			else if (a >= v && b >= w && c <= x && d <= y)
+				System.out.println("a"); //
 			else if (a == x && d == w)
 				System.out.println("c"); //
 			else if (c == v && d == w)
