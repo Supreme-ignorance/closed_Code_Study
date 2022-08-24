@@ -20,15 +20,14 @@ public class Rectangle {
 			int x = sc.nextInt();
 			int y = sc.nextInt();
 
-<<<<<<< HEAD
+
 			if (a <= v && b <= w && c >= x && d >= y)
 				System.out.println("a"); //
 			else if (a >= v && b >= w && c <= x && d <= y)
 				System.out.println("a"); //
 			else if (a == x && d == w)
-=======
-			if (a == x && d == w)
->>>>>>> 2dd29859407faef91b5aced9bb329f4c50000877
+				System.out.println("c"); //
+			else if (a == x && d == w)
 				System.out.println("c"); //
 			else if (c == v && d == w)
 				System.out.println("c"); //
