@@ -40,7 +40,7 @@ public class No_2606_Virus {
 		
 		System.out.println(cnt);
 	}
-	
+	// 갯수만 세기
 	static void dfs (int idx) {
 		visited[idx] = true;
 		for (int i : input[idx]) {
