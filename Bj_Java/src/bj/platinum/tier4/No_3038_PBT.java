@@ -3,7 +3,7 @@ package bj.platinum.tier4;
 import java.io.*;
 import java.util.*;
 
-public class PBT {
+public class No_3038_PBT {
 
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
