@@ -50,12 +50,12 @@ public class No_7576_Tomato {
 	
 	static void bfs(int day) {
 		
-		// ¸ğµÎ ÀÍ¾ú´Ù¸é
+		// ëª¨ë‘ ìµì—ˆë‹¤ë©´
 		if (isgoal(day)) {
 			System.out.println(day);
 			return;
 		}
-		
+		// ë‚ ì§œ ì¦ê°€
 		day++;
 		isfix = true;
 		
@@ -68,10 +68,10 @@ public class No_7576_Tomato {
 				int tempr = r + dr[j];
 				int tempc = c + dc[j];
 				
-				//°æ°èÁöÁ¤
+				//ê²½ê³„ì§€ì •
 				if (tempr < 0 || tempr >= m || tempc < 0 || tempc >= n) continue;
 				
-				//Åä¸¶Åä È®ÀÎ
+				//í† ë§ˆí†  í™•ì¸
 				if (arr[tempr][tempc] == 0) {
 					arr[tempr][tempc] = 1;
 					int[] temp = {tempr, tempc};
@@ -81,7 +81,7 @@ public class No_7576_Tomato {
 			}
 		}
 		
-		// º¯È­°¡ ¾ø´Ù¸é ³¡
+		// ë³€í™”ê°€ ì—†ë‹¤ë©´ ë
 		if (isfix) {
 			System.out.println(-1);
 			return;
@@ -93,7 +93,7 @@ public class No_7576_Tomato {
 	static boolean isgoal(int day) {
 		for (int r = 0; r < m; r++) {
 			for (int c = 0; c < n; c++) {
-				//¾ÆÁ÷ ¾ÈÀÍÀº Åä¸¶Åä°¡ ÀÖ´Ù¸é Å»Ãâ
+				//ì•„ì§ ì•ˆìµì€ í† ë§ˆí† ê°€ ìˆë‹¤ë©´ íƒˆì¶œ
 				if (arr[r][c] == 0) {
 					return false;
 				}
