@@ -47,7 +47,7 @@ public class No_2667_complexName {
 			System.out.println(size.get(i));
 		}
 	}
-	
+	// 아파트 걸리면 BFS
 	static void findApartment(int r, int c) {
 		if (!checked[r][c]) {
 			
