@@ -1,8 +1,8 @@
-package swea_1215_¿ì¿µ¿ì1;
+package swea_1215_ìš°ì˜ìš°1;
 
 import java.util.Scanner;
 
-public class ¿ì¿µ¿ì1 {
+public class ìš°ì˜ìš°1 {
 	static final int TC = 10;
 	static final int SIZE = 8;
 	public static void main(String[] args) {

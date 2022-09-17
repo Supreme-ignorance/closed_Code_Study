@@ -1,4 +1,4 @@
-package SWEA_1979_¥‹æÓ∆€¡Ò;
+package SWEA_1979_WordPuzzle;
 import java.util.*;
 public class Solution {
     public static void main(String[] args) {

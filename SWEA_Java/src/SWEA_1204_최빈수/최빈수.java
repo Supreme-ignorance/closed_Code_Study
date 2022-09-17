@@ -1,8 +1,8 @@
-package SWEA_1204_ÃÖºó¼ö;
+package SWEA_1204_ìµœë¹ˆìˆ˜;
 
 import java.util.Scanner;
 
-public class ÃÖºó¼ö {
+public class ìµœë¹ˆìˆ˜ {
 	static final int SIZE = 1000;
 	static final int MAX = 100;
 	public static void main(String[] args) {
@@ -13,7 +13,7 @@ public class ÃÖºó¼ö {
 		do {
 			t = sc.nextInt();
 			
-			int[] checkscore = new int[MAX+1]; // 0 ~ 100±îÁö
+			int[] checkscore = new int[MAX+1]; // 0 ~ 100ï¿½ï¿½ï¿½ï¿½
 			
 			for (int i = 0; i < SIZE; i++) {
 				int score = sc.nextInt();

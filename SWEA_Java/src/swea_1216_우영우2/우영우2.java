@@ -1,8 +1,8 @@
-package swea_1216_¿ì¿µ¿ì2;
+package swea_1216_ìš°ì˜ìš°2;
 
 import java.util.Scanner;
 
-public class ¿ì¿µ¿ì2 {
+public class ìš°ì˜ìš°2 {
 	static final int TC = 10;
 	static final int SIZE = 100;
 	public static void main(String[] args) {
@@ -24,11 +24,11 @@ public class ¿ì¿µ¿ì2 {
 			int max = Integer.MIN_VALUE;
 			for (int r = 0; r < SIZE; r++) {
 				for (int c = 0; c < SIZE; c++) {
-					// Çà¹æÇâ Ã£±â
-					// È¸¹® ±æÀÌ
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
+					// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					find : for (int i = SIZE - c; i > 1; i--) {
 						if(i <= max) break find;
-						//È¸¹® °Ë»ç
+						//È¸ï¿½ï¿½ ï¿½Ë»ï¿½
 						int cntr = 0;
 						int cntc = 0;
 						for (int j = 0; j < i / 2; j++) {

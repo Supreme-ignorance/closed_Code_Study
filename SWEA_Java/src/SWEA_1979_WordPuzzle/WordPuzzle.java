@@ -1,4 +1,4 @@
-package SWEA_1979_´Ü¾îÆÛÁñ;
+package SWEA_1979_WordPuzzle;
 
 import java.util.Scanner;
 
@@ -16,17 +16,17 @@ public class WordPuzzle {
 			int[][] puzzle = new int[n][n];
 			int[] word = new int[k];
 			
-			//ÆÛÁñ ±¸¼º
+			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			for (int r = 0; r < n; r++) {
 				for (int c = 0; c < n; c++) {
 					puzzle[r][c] = sc.nextInt();
 				}
 			}
 			
-			// Ã¼Å©¿ë
+			// Ã¼Å©ï¿½ï¿½
 			int cnt = 0;
 			
-			// ÆÐÅÏ Ã¼Å©
+			// ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 			for (int r = 0; r < n; r++) {
 				for (int c = 0; c < n; c++) {
 					boolean w_inword = true;
