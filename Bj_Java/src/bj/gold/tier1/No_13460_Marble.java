@@ -61,7 +61,7 @@ public class No_13460_Marble {
 	}
 	
 	/**
-	 * 각 구슬과 구멍의 위치를 파악
+	 * 초기 위치 확인
 	 * @param r
 	 * @param c
 	 */

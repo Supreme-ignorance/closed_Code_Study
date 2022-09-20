@@ -1,8 +1,8 @@
-package SWEA_1204_최빈수;
+package SWEA_1204_Mode;
 
 import java.util.Scanner;
 
-public class 최빈수 {
+public class Mode {
 	static final int SIZE = 1000;
 	static final int MAX = 100;
 	public static void main(String[] args) {

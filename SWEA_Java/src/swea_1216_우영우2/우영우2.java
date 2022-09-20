@@ -24,11 +24,11 @@ public class 우영우2 {
 			int max = Integer.MIN_VALUE;
 			for (int r = 0; r < SIZE; r++) {
 				for (int c = 0; c < SIZE; c++) {
-					// ����� ã��
-					// ȸ�� ����
+					// 占쏙옙占쏙옙占� 찾占쏙옙
+					// 회占쏙옙 占쏙옙占쏙옙
 					find : for (int i = SIZE - c; i > 1; i--) {
 						if(i <= max) break find;
-						//ȸ�� �˻�
+						//회占쏙옙 占싯삼옙
 						int cntr = 0;
 						int cntc = 0;
 						for (int j = 0; j < i / 2; j++) {
