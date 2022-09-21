@@ -1,8 +1,8 @@
-package swea_1989_¿ì¿µ¿ì;
+package swea_1989_ìš°ì˜ìš°;
 
 import java.util.Scanner;
 
-public class ¿ì¿µ¿ì {
+public class ìš°ì˜ìš° {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int tc = sc.nextInt();

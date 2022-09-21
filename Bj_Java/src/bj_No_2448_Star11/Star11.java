@@ -14,7 +14,7 @@ public class Star11 {
 		int input = sc.nextInt();
 		
 		n = input;
-		m = input / 3 * 6 - 1;
+		m = input * 2 - 1;
 		
 		map = new char[n][m];
 		
@@ -47,8 +47,8 @@ public class Star11 {
 			return;
 		}
 		
-		starDraw (input / 2, dr, dc, h / 2, w / 2); // ¿Þ
-		starDraw (input / 2, dr, dc + w / 2 + 1, h / 2, w / 2); // ¿À
-		starDraw (input / 2, dr - h / 2, dc + (w + 1) / 4, h / 2, w / 2); // À§
+		starDraw (input / 2, dr, dc, h / 2, w / 2); // ï¿½ï¿½
+		starDraw (input / 2, dr, dc + w / 2 + 1, h / 2, w / 2); // ï¿½ï¿½
+		starDraw (input / 2, dr - h / 2, dc + (w + 1) / 4, h / 2, w / 2); // ï¿½ï¿½
 	}
 }

@@ -3,19 +3,16 @@ package SWEA_4012_Cook;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Cook {
 	static int[][] arr;
 	static int n;
 	static boolean[] cell;
-	static int[] adish;
-	static int[] bdish;
-	static int[] collect = new int[2];
+	static boolean[] synergy;
+	static int [] temp = new int[2];
 	
-	static int a;
-	static int b;
+	static int tempRes;
 	static int res;
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -30,8 +27,7 @@ public class Cook {
 
 			arr = new int[n + 1][n + 1];
 			cell = new boolean[n + 1];
-			adish = new int[n / 2];
-			bdish = new int[n / 2];
+			synergy = new boolean[n / 2];
 
 			for (int r = 1; r < n + 1; r++) {
 				StringTokenizer st = new StringTokenizer(br.readLine());
@@ -39,71 +35,56 @@ public class Cook {
 					arr[r][c] = Integer.parseInt(st.nextToken());
 				}
 			}
-			
-			combi(1, 0, n);
-			
-			res = Math.abs(a - b);
+
+			combination(1, 0, n / 2);
 
 			System.out.println("#" + t + " " + res);
 		}
 	}
-	
-	static void aperm (int[] dish, int depth) {
-		if (depth == 2) {
-			a += arr[collect[0]][collect[1]];
-			return;
-		} else {
-			for (int i = 1; i < dish.length; i++) {
-				if (!cell[i]) {
-					cell[i] = true;
-					collect[depth] = dish[i];
-					aperm(dish, depth);
-					cell[i] = false;
-				}
-			}
-		}
-	}
-	
-	static void bperm (int[] dish, int depth) {
-		if (depth == 2) {
-			b += arr[collect[0]][collect[1]];
-			return;
-		} else {
-			for (int i = 1; i < dish.length; i++) {
-				if (!cell[i]) {
-					cell[i] = true;
-					collect[depth] = dish[i];
-					bperm(dish, depth);
-					cell[i] = false;
-				}
-			}
-		}
-	}
 
-	static void combi (int s, int depth, int end) {
-		if (depth >= end / 2) {
-			int idx = 0;
-			if (depth == end) {
-				aperm(adish, 0);
-				bperm(bdish, 0);
-				return;
+	static void combination (int s, int depth, int end) {
+		if (depth == end) {
+			int cellIdx = 0;
+			int unCellIdx = 0;
+			
+			int[] cellected = new int[n / 2];
+			int[] unCellected = new int[n / 2];
+			
+			for (int i = 1; i < n + 1; i++) {
+				if (cell[i]) cellected[cellIdx++] = i;
+				else unCellected[unCellIdx++] = i;
 			}
-			for (int i = s; i < n + 1; i++) {
-				if (!cell[i]) {
-					cell[i] = true;
-					bdish[idx++] = i;
-					combi(s + 1, depth + 1, end);
-					cell[i] = false;
-				}
+			
+			tempRes = 0;
+			permutation(cellected, 0, 2, true);
+			permutation(unCellected, 0, 2, false);
+			tempRes = Math.abs(tempRes);
+			
+			if (tempRes < res) res = tempRes;
+			return;
+		}
+		for (int i = s; i < n + 2 - end + depth; i++) {
+			if (!cell[i]) {
+				cell[i] = true;
+				combination(i + 1, depth + 1, end);
+				cell[i] = false;
 			}
-		} else {
-			for (int i = s; i < n + 1; i++) {
-				if (!cell[i]) {
-					cell[i] = true;
-					adish[depth] = i;
-					combi(s + 1, depth + 1, end);
-					cell[i] = false;
-				}
+		}
+	}
+	
+	static void permutation (int[] subarr, int depth, int end, boolean isPlus) {
+		if (depth == end) {
+			if (isPlus) tempRes += arr[temp[0]][temp[1]];
+			else tempRes -= arr[temp[0]][temp[1]];
+			return;
+		}
+
+		for (int i = 0; i < n / 2; i++) {
+			if (!synergy[i]) {
+				synergy[i] = true;
+				temp[depth] = subarr[i];
+				permutation(subarr, depth + 1, end, isPlus);
+				synergy[i] = false;
 			}
 		}
 	}
