@@ -10,8 +10,6 @@ import java.util.StringTokenizer;
 public class No_1767_Processor {
 	static int n;
 	static int[][] map;
-	static int[] order;
-	static boolean[] visited;
 	static List<int[]> cores;
 	static int cs;
 	static int[] dr = { -1, 1, 0, 0 };
@@ -42,82 +40,61 @@ public class No_1767_Processor {
 			}
 
 			cs = cores.size();
-			visited = new boolean[cs];
-			order = new int[cs];
 
-			dfs(0, 0);
+			makeProsessor(0, 0, 0);
 
 			System.out.println("#" + t + " " + res);
 		}
 	}
 
-	static void dfs(int depth, int coreNum) {
-		if (coreNum + cs - depth < resCore) return;
-		if (depth == cs) {
-			int lines = 0;
-			int core = 0;
-			
-			int[][] temp = new int[n][n];
-			
-			for (int r = 0; r < n; r++) {
-				for (int c = 0; c < n; c++) {
-					temp[r][c] = map[r][c];
-				}
-			}
-			
-			for (int i = 0; i < cs; i++) {
-				if (core + cs - i < resCore) return;
-				int line = 0;
-				
-				if (order[i] != 4) {
-					line = isIgo(temp, cores.get(i)[0], cores.get(i)[1], order[i]);
-				}
-				
-				if (line != 0) {
-					lines += line;
-					core++;
-				}
-			}
-			
-			if (core > resCore) {
-				res = lines;
+	static void makeProsessor(int idx, int core, int leng) {
+		int expect = cs - idx + core;
+		if (expect < resCore || (expect == resCore && leng > res)) return;
+		if (idx == cs && resCore <= core) {
+
+			if (resCore < core || (resCore == core && res > leng)) {
 				resCore = core;
-			} else if (core == resCore && res > lines) {
-				res = lines;
+				res = leng;
 			}
 			return;
 		}
 
-		for (int i = 0; i < 5; i++) {
-			if (!visited[depth]) {
-				visited[depth] = true;
-				order[depth] = i;
-				if (i == 5) dfs(depth + 1, coreNum);
-				else dfs(depth + 1, coreNum + 1);
-				visited[depth] = false;
+		if (idx == cs)
+			return;
+
+		for (int i = 0; i < 4; i++) {
+			if (islink(cores.get(idx)[0], cores.get(idx)[1], i)) {
+				int more = linkcore(cores.get(idx)[0], cores.get(idx)[1], i, 2);
+				makeProsessor(idx + 1, core + 1, leng + more);
+				linkcore(cores.get(idx)[0], cores.get(idx)[1], i, 0);
 			}
 		}
+		makeProsessor(idx + 1, core, leng);
 	}
 
-	static int isIgo(int[][] temp, int pr, int pc, int dir) {
-		int dist = 0;
-		dist = 0;
-		while (dir != -1) {
-			dist++;
-			int checkr = pr + dist * dr[dir];
-			int checkc = pc + dist * dc[dir];
+	static int linkcore(int r, int c, int dir, int putPick) {
+		int cnt = 0;
+		while (true) {
+			r += dr[dir];
+			c += dc[dir];
 
-			if (checkr < 0 || checkr >= n || checkc < 0 || checkc >= n)
-				break;
-			
-			if (temp[checkr][checkc] != 0)
-				return 0;
-
-			temp[checkr][checkc] = 2;
+			if (r < 0 || r >= n || c < 0 || c >= n)
+				return cnt;
+			cnt++;
+			map[r][c] = putPick;
 		}
-		
-		int min = dist - 1;
-		
-		return min;
+	}
+	
+	static boolean islink(int r, int c, int dir) {
+		while (true) {
+			r += dr[dir];
+			c += dc[dir];
+			
+			if (r < 0 || r >= n || c < 0 || c >= n)
+				return true;
+			
+			if (map[r][c] != 0)
+				return false;
+		}
 	}
 }
