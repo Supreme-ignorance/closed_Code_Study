@@ -51,7 +51,6 @@ public class No_2383_Lunch {
 		if (depth == persons.size()) {
 			isin = new boolean[persons.size()];
 			out(1, 0);
-			System.out.println();
 			return;
 		}
 		
@@ -75,19 +74,6 @@ public class No_2383_Lunch {
 	}
 
 	private static void out(int timeline, int outperson) {
-		for (int i = 0; i < persons.size(); i++) {
-			if (!isin[i]) {
-				
-				persons.get(i).time = persons.get(i).time - 1;
-				
-				if (persons.get(i).time <= 0 && stairs.get(persons.get(i).target).in < 3) {
-					isin[i] = true;
-					stairs.get(persons.get(i).target).in++;
-					persons.get(i).outtime = timeline + stairs.get(persons.get(i).target).time;
-					in.add(persons.get(i));
-				}
-			}
-		}
 		while (!in.isEmpty()) {
 			if (in.peek().outtime == timeline) {
 				stairs.get(in.peek().target).in--;
@@ -98,8 +84,20 @@ public class No_2383_Lunch {
 			}
 		}
 		
+		for (int i = 0; i < persons.size(); i++) {
+			if (!isin[i]) {
+				if (persons.get(i).time <= timeline && stairs.get(persons.get(i).target).in < 3) {
+					isin[i] = true;
+					stairs.get(persons.get(i).target).in++;
+					persons.get(i).outtime = timeline + stairs.get(persons.get(i).target).time;
+					in.add(persons.get(i));
+					
+				}
+			}
+		}
+		
 		if (outperson == persons.size()) {
-			if (res > timeline) res = timeline;
+			if (res > timeline) res = timeline + 1;
 			return;
 		} else {
 			out(timeline + 1, outperson);
@@ -125,7 +123,7 @@ class Person implements Comparable<Person> {
 
 	@Override
 	public int compareTo(Person o) {
-		return this.time - o.time;
+		return this.outtime - o.outtime;
 	}
 	
 }
