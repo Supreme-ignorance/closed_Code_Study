@@ -91,7 +91,6 @@ public class No_2383_Lunch {
 					stairs.get(persons.get(i).target).in++;
 					persons.get(i).outtime = timeline + stairs.get(persons.get(i).target).time;
 					in.add(persons.get(i));
-					
 				}
 			}
 		}
