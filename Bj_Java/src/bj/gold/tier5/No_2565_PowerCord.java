@@ -4,13 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.StringTokenizer;
 
 public class No_2565_PowerCord {
 	static int n;
 	static int[][] map;
 	static int[] dp;
-
+	static int max = Integer.MIN_VALUE;
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -24,45 +25,26 @@ public class No_2565_PowerCord {
 			map[i][0] = Integer.valueOf(st.nextToken());
 			map[i][1] = Integer.valueOf(st.nextToken());
 		}
-		int cnt = 0;
-		for (int i = 0; i < n; i++) {
-			for (int j = i + 1; j < n; j++) {
-				if ((map[i][0] > map[j][0] && map[i][1] > map[j][1])
-						|| (map[i][0] < map[j][0] && map[i][1] < map[j][1]))
-					continue;
-				
-				dp[i]++;
-				dp[j]++;
+		
+		Arrays.sort(map, new Comparator<int[]>() {
+
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				// TODO Auto-generated method stub
+				return o1[0] - o2[0];
 			}
-			if (dp[i] > 1) {
-				cnt++;
-				for (int j = i + 1; j < n; j++) {
-					if ((map[i][0] > map[j][0] && map[i][1] > map[j][1])
-							|| (map[i][0] < map[j][0] && map[i][1] < map[j][1]))
-						continue;
-					dp[i] = 0;
-					dp[j]--;
-				}
-			}
-		}
-		
-		System.out.println (Arrays.toString(dp));
-		Arrays.sort(dp);
-		
-		
-		int sum = 0;
+			
+		});
 		
 		for (int i = 0; i < n; i++) {
-			sum += dp[i];
+			dp[i] = 1;
+			for (int j = 0; j < i; j++) {
+				if (map[j][1] < map[i][1])
+					dp[i] = Math.max(dp[i], dp[j] + 1);
+			}
+			max = Math.max(dp[i], max);
 		}
 		
-		
-		int idx = n - 1;
-		while (sum > 0) {
-			cnt++;
-			sum -= 2 * dp[idx--];
-		}
-		
-		System.out.println(cnt);
+		System.out.println(n - max);
 	}
 }
