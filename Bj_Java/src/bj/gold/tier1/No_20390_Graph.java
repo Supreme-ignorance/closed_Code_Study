@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 public class No_20390_Graph {
 	static int n;
-	static long A, B, C, D;
+	static long a, b, c, d;
 	static final long INF = Long.MAX_VALUE;
 	static long[] edge;
 	static long[][] adj;
@@ -29,10 +29,10 @@ public class No_20390_Graph {
 		
 		st = new StringTokenizer(br.readLine());
 		
-		A = Long.valueOf(st.nextToken());
-		B = Long.valueOf(st.nextToken());
-		C = Long.valueOf(st.nextToken());
-		D = Long.valueOf(st.nextToken());
+		a = Long.valueOf(st.nextToken());
+		b = Long.valueOf(st.nextToken());
+		c = Long.valueOf(st.nextToken());
+		d = Long.valueOf(st.nextToken());
 		
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < n; i++) {
@@ -42,24 +42,21 @@ public class No_20390_Graph {
 		for (int r = 0 ; r < n; r++) {
 			for (int c = 0 ; c < n; c++) {
 				if (r < c) 
-					adj[r][c] = adj[c][r] = ((edge[r] * A + edge[c] * B) % C) ^ D;
+					adj[r][c] = adj[c][r] = ((edge[r] * a + edge[c] * b) % c) ^ d;
 			}
-			System.out.println(Arrays.toString(adj[r]));
 		}
 		
 		long res = prim();
 		
-		System.out.println();
 		System.out.println(Arrays.toString(dist));
 		System.out.println(res);
 	}
-	
 	private static long prim() {
 		
 		int idx = -1;
 		dist[0] = 0;
 		
-		for (int i = 0; i < n - 1; i++) {
+		for (int i = 0; i < n; i++) {
 			long min = INF;
 			
 			for (int j = 0; j < n; j++) {
