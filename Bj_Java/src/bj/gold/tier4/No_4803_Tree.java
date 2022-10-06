@@ -1,8 +1,8 @@
-package bj_No_4803_Tree;
+package bj.gold.tier4;
 
 import java.util.*;
 
-public class Tree {
+public class No_4803_Tree {
 	static List<Integer>[] connect;
 	static boolean[] visited;
 	static boolean isloop;
@@ -56,7 +56,7 @@ public class Tree {
 			if (!visited[i]) {
 				dfs(i, start, input);
 			} else {
-				// Á÷Àü¿¡ °£ °÷ÀÌ ¾Æ´Ñµ¥ ÀÌÀü¿¡ °¬´ø°÷À¸·Î ¿¬°áÀÌ µÇ¾î ÀÖ´Ù¸é
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ñµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½Ö´Ù¸ï¿½
 				if (i != before && visited[i]) {
 					isloop = true;
 				}

@@ -1,8 +1,8 @@
-package bj_No_9934_PBT;
+package bj.silver.tier1;
 
 import java.util.Scanner;
 
-public class PBT {
+public class No_9934_PBT {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int k = sc.nextInt();

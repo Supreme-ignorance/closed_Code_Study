@@ -1,8 +1,8 @@
-package bj_No_4563_RevengeOfPythagoras;
+package bj.gold.tier5;
 
 import java.util.Scanner;
 
-public class RevengeOfPythagoras {
+public class No_4563_RevengeOfPythagoras {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		

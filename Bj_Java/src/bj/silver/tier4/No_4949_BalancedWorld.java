@@ -1,9 +1,9 @@
-package bj_No_4949_BalancedWorld;
+package bj.silver.tier4;
 
 import java.util.Scanner;
 import java.util.Stack;
 
-public class BalancedWorld {
+public class No_4949_BalancedWorld {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
